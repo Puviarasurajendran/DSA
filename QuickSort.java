@@ -1,20 +1,21 @@
 import java.util.*;
 class QuickSort{
    public static void swap(int arr[],int first,int last){
-        int temp=first;
-		first=last;
-		last=first;
+        int temp=arr[first];
+		arr[first]=arr[last];
+		arr[last]=temp;
 		}
    public static int pivot(int arr[],int pivotIndex,int endIndex){
                int swapIndex=pivotIndex;
-			   for(int i=pivotIndex+1;i<=arr.length;i++){
-			      if(arr[pivotIndex]>arr[i])
+		for(int i=pivotIndex+1;i<=endIndex;i++){
+		     if(arr[pivotIndex]>arr[i]){
 				  swapIndex++;
 				  swap(arr,swapIndex,i);
 			   }
-              swap(arr,pivotIndex,swapIndex);
-			 return swapIndex;
-			 }		
+		}	   
+                swap(arr,pivotIndex,swapIndex);
+	        return swapIndex;
+		}		
 	public static void quickSortHelper(int arr[],int start,int end){
 	        if(start<end){
 			int pivotIndex=pivot(arr,start,end);
